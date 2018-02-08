@@ -50,7 +50,7 @@ open class WOWCheckbox : UIControl {
     }
 
     // TODO: doesn't work for protocol, if it's possible in the future?
-    @IBInspectable
+    
     open var delegate: WOWCheckboxDelegate? = nil {
         didSet {
             
@@ -76,7 +76,7 @@ open class WOWCheckbox : UIControl {
         self.addTarget(self, action: #selector(WOWCheckbox.onTouchUpInside(_:)), for: UIControlEvents.touchUpInside);
     }
     
-    func onTouchUpInside(_ sender: UIButton) {
+    @objc func onTouchUpInside(_ sender: UIButton) {
         isChecked = !isChecked
         delegate?.didSelectCheckbox(self)
     }
